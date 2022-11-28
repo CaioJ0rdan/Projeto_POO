@@ -14,7 +14,7 @@ using namespace std;
 class Partida{
 
 private: //ATRIBUTOS
-    Date data;
+    Date* data;
     Time* timeCasa;
     Time* timeVisitante;
     int placarCasa;
@@ -35,6 +35,10 @@ public:
 
     string GetPlacar();
 
+/*==========DEMAIS FUNÇÕES==========*/
+    void golCasa();
+
+    void golVisitante();
 };
 
 #endif //PARTIDA_H

@@ -11,7 +11,7 @@ class Time{
 
 private: // ATRIBUTOS
     string nome;
-    Jogador *jogadores[5];
+    Jogador *jogadores[5] = {nullptr,nullptr,nullptr,nullptr,nullptr};
     int vitorias;
     int derrotas;
     int empates;

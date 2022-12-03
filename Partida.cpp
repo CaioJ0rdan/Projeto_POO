@@ -30,27 +30,12 @@ Partida::Partida(Date data,Time casa,Time visitante){
     void Partida::PlacarJogo(int a,int b){
         placarCasa = a;
         placarVisitante = b;
-        DefGanhador();
     }
 
     Time Partida::GetGanhador(){
-        DefGanhador();
-        return placarCasa > placarVisitante ? GetVisitante() : GetVisitante();
+        return placarCasa >= placarVisitante ? GetCasa() : GetVisitante();
     }
 
     Time Partida::GetPerdedor(){
-        DefGanhador();
-        return placarCasa < placarVisitante ? GetCasa() : GetVisitante();
-    }
-
-    void Partida::DefGanhador(){
-        int a;
-         if(placarCasa == placarVisitante){
-            cout << "Digite o resultado dos pênaltis :";
-            cin >> a;
-            placarCasa = a;
-            int b;
-            cin >> b;
-            placarVisitante = b;
-         }
+        return placarCasa <= placarVisitante ? GetCasa() : GetVisitante();
     }

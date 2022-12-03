@@ -42,7 +42,6 @@ public:
 
     void PlacarJogo(int a,int b);
 
-    void DefGanhador();
 };
 
 #endif //PARTIDA_H

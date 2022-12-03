@@ -41,7 +41,7 @@ int main(){
     
 
     Partida Semifinal(a1,Putaria,a2);
-    Semifinal.PlacarJogo(3,3);
-    cout << "Ganhador = " << Semifinal.GetPerdedor().GetNome() << " e Perdedor = " << Semifinal.GetGanhador().GetNome() << endl;
+    Semifinal.PlacarJogo(5,4);
+    cout << "Ganhador = " << Semifinal.GetGanhador().GetNome();
     return 0;
 }

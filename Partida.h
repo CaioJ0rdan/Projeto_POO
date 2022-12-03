@@ -35,10 +35,14 @@ public:
 
     string GetPlacar();
 
-/*==========DEMAIS FUNÇÕES==========*/
-    void golCasa();
+    Time GetGanhador();
 
-    void golVisitante();
+    Time GetPerdedor();
+/*==========DEMAIS FUNÇÕES==========*/
+
+    void PlacarJogo(int a,int b);
+
+    void DefGanhador();
 };
 
 #endif //PARTIDA_H

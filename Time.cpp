@@ -5,17 +5,19 @@ Time::Time(){
     vitorias = 0;
     derrotas = 0;
     empates = 0;
+    qjog = 5;
 }
 
 Time::Time(string nome){
     this->nome = nome;
     vitorias = 0;
     derrotas = 0;
-    empates = 0;
+    empates = 0; 
+    qjog = 5;
 }
 
 string Time::GetNome(){
-    return nome;
+    return this->nome;
 }
 
 int Time::GetVitorias(){
@@ -36,7 +38,7 @@ string Time::GetResultados(){
 }
 
 void Time::ImprimeJogadores(){
-    for(int i=0;i<5;i++){
+    for(int i=0;i<qjog;i++){
         cout << jogadores[i]->GetNome() << endl;
     }
 }
@@ -53,10 +55,14 @@ void Time::SomaEmpates(){
     empates++;
 }
 
-void Time::insJogador(Jogador Exemplo){
-    int i = 0;
-    while(jogadores[i] == nullptr){
-        i++;
+void Time::ins_Jogador(Jogador *Exemplo){
+     if(jogadores.size() < qjog){
+        jogadores.push_back(Exemplo);
     }
-    jogadores[i] = &Exemplo;
+}
+
+void Time::DefResultados(int v,int e,int d){
+    vitorias = v;
+    derrotas = d;
+    empates = e;    
 }

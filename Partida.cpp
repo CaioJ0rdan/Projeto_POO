@@ -4,18 +4,13 @@ Partida::Partida(){
     data = nullptr;
     timeCasa = nullptr;
     timeVisitante = nullptr;
-    placarCasa = 0;
-    placarVisitante = 0; 
 }
 
 Partida::Partida(Date data,Time casa,Time visitante){
     this->data = &data;
     timeCasa = &casa;
     timeVisitante = &visitante;
-    placarCasa = 0;
-    placarVisitante = 0; 
 }
-
     string Partida::GetDate(){
         return data->data;
     }
@@ -29,13 +24,33 @@ Partida::Partida(Date data,Time casa,Time visitante){
     }
 
     string Partida::GetPlacar(){
-        return to_string(placarCasa) + " X " + to_string(placarVisitante);
+        return timeCasa->GetNome() + to_string(placarCasa) + " X " + to_string(placarVisitante) + timeVisitante->GetNome();
     }
 
-    void Partida::golCasa(){
-        placarCasa++;
+    void Partida::PlacarJogo(int a,int b){
+        placarCasa = a;
+        placarVisitante = b;
+        DefGanhador();
     }
 
-    void Partida::golVisitante(){
-        placarVisitante++;
+    Time Partida::GetGanhador(){
+        DefGanhador();
+        return placarCasa > placarVisitante ? GetVisitante() : GetVisitante();
+    }
+
+    Time Partida::GetPerdedor(){
+        DefGanhador();
+        return placarCasa < placarVisitante ? GetCasa() : GetVisitante();
+    }
+
+    void Partida::DefGanhador(){
+        int a;
+         if(placarCasa == placarVisitante){
+            cout << "Digite o resultado dos pênaltis :";
+            cin >> a;
+            placarCasa = a;
+            int b;
+            cin >> b;
+            placarVisitante = b;
+         }
     }

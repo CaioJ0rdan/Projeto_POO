@@ -11,7 +11,8 @@ class Time{
 
 private: // ATRIBUTOS
     string nome;
-    Jogador *jogadores[5] = {nullptr,nullptr,nullptr,nullptr,nullptr};
+    int qjog; //Quantidade de Jogadores
+    vector <Jogador*> jogadores;
     int vitorias;
     int derrotas;
     int empates;
@@ -46,7 +47,12 @@ public:
 
     void SomaEmpates();
 
-    void insJogador(Jogador Exemplo);
+    void ins_Jogador(Jogador *Exemplo);
+
+    void DefResultados(int v,int e,int d);
+
+    
+
 };
 
 #endif //TIME_H

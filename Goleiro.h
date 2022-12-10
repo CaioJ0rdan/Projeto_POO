@@ -18,6 +18,7 @@ public:
 
     int getHabilidade();
 
+    void printCard();
 };
 
 

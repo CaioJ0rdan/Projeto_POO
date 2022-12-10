@@ -14,4 +14,10 @@ int Zagueiro::getHabilidade(){
     return ((Jogador::GetHabilidade()*5)+(desarme*2)+(cobertura*3))/10;
 }
 
-                
+void Zagueiro::printCard(){
+    cout << "Nome: " << GetNome() << endl;
+    cout << "Posição: Zagueiro" << endl; 
+    cout << "Idade: " << GetIdade() << endl;
+    cout << "Camisa: " << GetCamisa() << endl;
+    cout << "Habilidade: " << GetHabilidade() << endl;
+}

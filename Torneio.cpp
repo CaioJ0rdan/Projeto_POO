@@ -5,17 +5,19 @@
 
     Torneio::Torneio(string nome,Time a,Time b, Time c, Time d,Date x){
         this->nome = nome;
-        times[0] = &a;
-        times[1] = &b;
-        times[2] = &c;
-        times[3] = &d;
+        times->push_back(&a);
+        times->push_back(&b);
+        times->push_back(&c);
+        times->push_back(&d);
         data = &x;
-        partidas[0] = new Partida(*data,times[0],times[1]); 
-        partidas[1] = new Partida(*data,times[2],times[3]);
+        Partida* y = new Partida(*data,a,b);
+        partidas->push_back(y);
+        Partida* z = new Partida(*data,c,d);
+        partidas->push_back(z);
     }
 
     Time Torneio::GetGanhador(){
-        return *ganhador;
+        return partidas->at(2)->GetGanhador();
     }
 
 
@@ -23,40 +25,38 @@
         int a,b,c,d,e,f;
         cout << "Digite o resultado da primeira partida : \n";
         cin >> a >> b;
-        partidas[0]->PlacarJogo(a, b);
+        partidas->at(0)->PlacarJogo(a, b);
         cout << "Digite o resultado da segunda partida : \n";
         cin >> c >> d;
-        partidas[1]->PlacarJogo(c, d);
-        partidas[2] = new Partida(*data,partidas[0]->GetGanhador(),partidas[1]->GetGanhador());
+        partidas->at(1)->PlacarJogo(c, d);
+        Partida* aux = new Partida(*data,partidas->at(0)->GetGanhador(),partidas->at(1)->GetGanhador());
+        partidas->push_back(aux);
         cout << "Digite o resultado da partida final: \n";
         cin >> e >> f; 
-        partidas[2]->PlacarJogo(e, f);
+        partidas->at(2)->PlacarJogo(e, f);
     }
 
     void Torneio::print(){
-        cout << "Partida 1 : " << partidas[0]->GetPlacar() << endl;
-        //cout << "Partida 2 : " << partidas[1]->GetPlacar() << endl;
-        //cout << "Final : "     << partidas[2]->GetPlacar() << endl;
+        cout << "Partida 1 : " << partidas->at(0)->GetPlacar() << endl;
+        cout << "Partida 2 : " << partidas->at(1)->GetPlacar() << endl;
+        cout << "Final : "     << partidas->at(2)->GetPlacar() << endl;
     }
  
 
 
     void Torneio::addTime(Time* aux){
-        if(times[3] != nullptr){
+        int a = times->size();
+        if(a >= 4){
             cout << "Cheio\n";
         }else{
-        for(int i=0;i<4;i++){
-            if(times[i] == nullptr){
-                times[i] == aux;
-                if(i == 1){
-                    partidas[0] = new Partida(*data,times[0],times[1]);
-                }
-                if(i==3){
-                    partidas[1] = new Partida(*data,times[2],times[3]);
-                }
-                break;
-
+            times->push_back(aux);
+            if(a == 2){
+                Partida* y = new Partida(*data,*times->at(0),*times->at(1));
+                partidas->push_back(y);
             }
-        }
+            if(a == 4){
+                Partida* y = new Partida(*data,*times->at(2),*times->at(3));
+                partidas->push_back(y);
+            }
         }
     }

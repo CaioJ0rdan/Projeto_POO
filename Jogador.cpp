@@ -43,3 +43,8 @@ Jogador::Jogador(string nome,int idade,int habilidade,int gols,int camisa){
     void Jogador::SomaGol(){
         gols++;
     }
+
+
+    void Jogador::printCard(){
+        
+    }

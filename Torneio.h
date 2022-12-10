@@ -13,7 +13,6 @@ private:
     string nome; 
     vector <Time*> times[4];
     vector <Partida*> partidas[3];
-    Time* ganhador = nullptr;
     Date* data = nullptr;
 public:
     Torneio();

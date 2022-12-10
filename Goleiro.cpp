@@ -14,4 +14,10 @@ int Goleiro::getHabilidade(){
     return ((Jogador::GetHabilidade()*5) + (((int)(altura*100))*2) + (reflexos*3))/10;
 }
 
-                
+void Goleiro::printCard(){
+    cout << "Nome: " << GetNome() << endl;
+    cout << "Posição: Goleiro" << endl; 
+    cout << "Idade: " << GetIdade() << endl;
+    cout << "Camisa: " << GetCamisa() << endl;
+    cout << "Habilidade: " << GetHabilidade() << endl;
+}           

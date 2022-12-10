@@ -15,8 +15,8 @@ class Partida{
 
 private: //ATRIBUTOS
     Date* data;
-    Time* timeCasa;
-    Time* timeVisitante;
+    Time timeCasa;
+    Time timeVisitante;
     int placarCasa;
     int placarVisitante;
 

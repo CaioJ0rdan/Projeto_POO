@@ -2,29 +2,29 @@
 
 Partida::Partida(){
     data = nullptr;
-    timeCasa = nullptr;
-    timeVisitante = nullptr;
+    timeCasa;
+    timeVisitante;
 }
 
 Partida::Partida(Date data,Time casa,Time visitante){
     this->data = &data;
-    timeCasa = &casa;
-    timeVisitante = &visitante;
+    timeCasa = casa;
+    timeVisitante = visitante;
 }
     string Partida::GetDate(){
         return data->data;
     }
 
     Time Partida::GetCasa(){
-        return *timeCasa;
+        return timeCasa;
     }
 
     Time Partida::GetVisitante(){
-        return *timeVisitante;
+        return timeVisitante;
     }
 
     string Partida::GetPlacar(){
-        return timeCasa->GetNome() + to_string(placarCasa) + " X " + to_string(placarVisitante) + timeVisitante->GetNome();
+        return timeCasa.GetNome() + " " + to_string(placarCasa) + " X " + to_string(placarVisitante)+ " " + timeVisitante.GetNome();
     }
 
     void Partida::PlacarJogo(int a,int b){
@@ -33,9 +33,17 @@ Partida::Partida(Date data,Time casa,Time visitante){
     }
 
     Time Partida::GetGanhador(){
-        return placarCasa >= placarVisitante ? GetCasa() : GetVisitante();
+        if(placarCasa > placarVisitante){
+            return timeCasa;
+        }else{
+            return timeVisitante;
+        }
     }
 
     Time Partida::GetPerdedor(){
-        return placarCasa <= placarVisitante ? GetCasa() : GetVisitante();
+        if(placarCasa < placarVisitante){
+            return timeCasa;
+        }else{
+            return timeVisitante;
+        } 
     }

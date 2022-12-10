@@ -40,6 +40,8 @@ public:
 
     void SomaGol();
 
+    void virtual printCard();
+
 };
 
 #endif //JOGADOR_H

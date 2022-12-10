@@ -39,7 +39,8 @@ string Time::GetResultados(){
 
 void Time::ImprimeJogadores(){
     for(int i=0;i<qjog;i++){
-        cout << jogadores[i]->GetNome() << endl;
+        jogadores.at(i)->printCard();
+        cout << "==================================\n";
     }
 }
 

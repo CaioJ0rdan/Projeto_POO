@@ -14,3 +14,10 @@ int Atacante::getHabilidade(){
     return ((Jogador::GetHabilidade()*5)+(tecnica*3)+(velocidade*2))/10;
 }
 
+void Atacante::printCard(){
+    cout << "Nome: " << GetNome() << endl;
+    cout << "Posição: Atacante" << endl; 
+    cout << "Idade: " << GetIdade() << endl;
+    cout << "Camisa: " << GetCamisa() << endl;
+    cout << "Habilidade: " << GetHabilidade() << endl;
+}

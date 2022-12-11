@@ -47,6 +47,8 @@ public:
 
     void SomaEmpates();
 
+    void SetNome(string n);
+
     void ins_Jogador(Jogador *Exemplo);
 
     void DefResultados(int v,int e,int d);

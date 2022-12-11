@@ -28,6 +28,21 @@ Partida::Partida(Date data,Time casa,Time visitante){
     }
 
     void Partida::PlacarJogo(int a,int b){
+        if(a == b){
+            int c,d; 
+            cout << "Quanto saiu nos penaltis? " << endl;
+            cin >> c >> d;
+            a = c;
+            b = d;
+            timeCasa.SomaEmpates();
+            timeCasa.SomaEmpates();
+        }else if(a > b){
+            timeCasa.SomaVitorias();
+            timeVisitante.SomaDerrotas();
+        }else{
+            timeVisitante.SomaVitorias();
+            timeCasa.SomaDerrotas();
+        }
         placarCasa = a;
         placarVisitante = b;
     }

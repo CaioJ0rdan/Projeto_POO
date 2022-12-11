@@ -67,3 +67,7 @@ void Time::DefResultados(int v,int e,int d){
     derrotas = d;
     empates = e;    
 }
+
+    void Time::SetNome(string n){
+        nome = n;
+    }

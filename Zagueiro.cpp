@@ -3,9 +3,10 @@
 Zagueiro::Zagueiro() : Jogador() {
     cobertura = 0;
     desarme = 0.0;
+    SetPosicao("Zagueiro");
 }
 
-Zagueiro::Zagueiro(string nome,int idade,int habilidades,int gols,int camisa,int cobertura, int desarme)  : Jogador(nome,idade,habilidades,gols,camisa){
+Zagueiro::Zagueiro(string nome,int idade,int habilidades,int gols,int camisa,int cobertura, int desarme)  : Jogador(nome,idade,habilidades,gols,camisa,"Zagueiro"){
     this->cobertura = cobertura;
     this->desarme = desarme;
 }

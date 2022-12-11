@@ -47,6 +47,8 @@ public:
 
     void SomaEmpates();
 
+    Jogador GetJogador(int posicão);
+
     void SetNome(string n);
 
     void ins_Jogador(Jogador *Exemplo);

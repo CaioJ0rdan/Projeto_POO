@@ -7,18 +7,20 @@ Jogador::Jogador(){
     camisa = 0; 
 }
 
-Jogador::Jogador(string nome,int idade,int habilidade,int gols,int camisa){
+Jogador::Jogador(string nome,int idade,int habilidade,int gols,int camisa,string posicao){
     this->nome = nome;
     this->idade = idade;
     this->habilidade = habilidade;
     this->gols = gols;
     this->camisa = camisa; 
+    this->posicao = posicao;
 }
 
 
     string Jogador::GetNome(){
         return nome;
     }
+
 
     int Jogador::GetIdade(){
         return idade;
@@ -44,7 +46,21 @@ Jogador::Jogador(string nome,int idade,int habilidade,int gols,int camisa){
         gols++;
     }
 
-
-    void Jogador::printCard(){
-        
+    void Jogador::SetPosicao(string p)
+    {
+     posicao = p;   
+    }
+    
+    string Jogador::GetPosicao(){
+        return posicao;
+    }
+    
+    void Jogador::printCard(){   
+    cout << "\n========================================================\n"; 
+    cout << "Nome: " << GetNome() << endl;
+    cout << "Posição: "<< posicao << endl; 
+    cout << "Idade: " << GetIdade() << endl;
+    cout << "Camisa: " << GetCamisa() << endl;
+    cout << "Habilidade: " << GetHabilidade() << endl;
+    cout << "\n========================================================\n";
     }

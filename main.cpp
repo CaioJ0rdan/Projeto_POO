@@ -16,6 +16,13 @@ void Mostrar_Vector(vector<Time*> team){
     }
 }
 
+void Mostrar_Vector(vector<Time*> team,int i){
+    cout << team.at(i)->GetNome() << endl;
+    cout << "Vitorias : " <<team.at(i)->GetVitorias() << endl;
+    cout << "Empates : " <<team.at(i)->GetEmpates() << endl;
+    cout << "Derrotas : " <<team.at(i)->GetDerrotas() << endl;
+}
+
 void Mostrar_Vector(vector<Partida> matches){
     cout << "Historico de partidas:\n";
     cout << "\n========================================================\n" << endl;
@@ -102,19 +109,20 @@ int main(){
     while(true){
         //C
         cout << "Digite 'Criar_Time' para mostrar os times disponiveis" << endl;
-        cout << "Digite 'Novo_Torneio' para criar um torneio " << endl; 
-        cout << "Digite 'Nova_Partida' para criar uma nova partida" << endl;
+        cout << "Digite 'Novo_Torneio' e os identificadores para criar um torneio " << endl; 
+        cout << "Digite 'Nova_Partida' e os identificadores para criar uma nova partida" << endl;
         //R
-        cout << "Digite 'Mostar_Times' para mostrar os times disponiveis" << endl;
+        cout << "Digite 'Mostar_Time' e o identificador para mostrar os times disponiveis" << endl;
         cout << "Digite 'Mostrar_Jogadores' para ver os jogadores de um time" << endl;
         cout << "Digite 'Mostrar_Partidas' para ver o resultado de uma partida" << endl;
         cout << "Digite 'Mostrar_Torneios'para ver os torneios" << endl; 
         //U
-        cout << "Digite 'Alterar_Time' para alterar o nome de algum time" << endl;
+        cout << "Digite 'Alterar_Time' e o identificador para alterar o nome de algum time" << endl;
         //D
-        cout << "Digite 'Remover_Time' para remover um time" << endl;
+        cout << "Digite 'Remover_Time' e o identificador para remover um time" << endl;
         
         cout << "Digite 'Mostrar_Data' para mostrar a data das partidas" << endl; 
+        cout << "Digite 'Procurar_Jogador' para procurar um jogador\n"; 
         cout << "Digite 'EXIT' para  sair" << endl;
 
         
@@ -122,9 +130,11 @@ int main(){
         cin >>aux;
 
         if(aux == "Criar_Time"){
+            system("clear||cls");
+            cout << "Digite o nome do time:" << endl;
             string nome;
             cin >> nome;
-            Time* novo =  new Time(nome);
+            Time* novo = new Time(nome);
             cout << "Digite o nome dos Jogadores :" << endl;
             cin >> nome;
             Atacante w1(nome,20+(rand()%20),40+(rand()%60),30+(rand()%40),7+rand()%3,60+(rand()%30),70+(rand()%25));
@@ -136,6 +146,7 @@ int main(){
             Zagueiro w4(nome,20+(rand()%20),40+(rand()%60),30+(rand()%40),5+rand()%2,60+(rand()%30),70+(rand()%25));
             cin >> nome;
             Goleiro w5(nome,20+(rand()%20),40+(rand()%60),30+(rand()%40),1,60+(rand()%30),70+(rand()%25));
+            
             novo->ins_Jogador(&w1);
             novo->ins_Jogador(&w2);
             novo->ins_Jogador(&w3);
@@ -143,6 +154,7 @@ int main(){
             novo->ins_Jogador(&w5);
             team.push_back(novo);
         }else if(aux == "Novo_Torneio"){
+            system("clear||cls");
             Mostrar_Vector(team);
             cout << "Digite o numero dos 4 times do torneio:" << endl;
             int k1,k2,k3,k4;
@@ -152,11 +164,13 @@ int main(){
             torneios.push_back(*torn);
             delete torn;
         }else if(aux == "Mostrar_Data"){
+            system("clear||cls");
             chrono::system_clock::time_point hoje = chrono::system_clock::now();
             time_t tt  = chrono::system_clock::to_time_t(hoje);
             cout << ctime(&tt) << endl;
 
         }else if(aux == "Nova_Partida"){
+            system("clear||cls");
             Mostrar_Vector(team);
             cout << "Digite o numero dos 2 times da partida:" << endl;
             int p1,p2;
@@ -168,19 +182,26 @@ int main(){
             matches.push_back(*part);
             delete part;
             
-        }else if(aux == "Mostrar_Times"){
-            Mostrar_Vector(team);
+        }else if(aux == "Mostrar_Time"){
+            system("clear||cls");
+            int ntime;
+            cin >> ntime;
+            Mostrar_Vector(team,ntime);
         }else if(aux == "Mostrar_Torneio"){
+            system("clear||cls");
             Mostrar_Vector(torneios);
         }else if(aux == "Mostrar_Jogadores"){
+            system("clear||cls");
             Mostrar_Vector(team);
             cout << "Digite o numero do time : " << endl;
             int h1;
             cin >> h1;
             team.at(h1)->ImprimeJogadores();
         }else if(aux == "Mostrar_Partidas"){
+            system("clear||cls");
             Mostrar_Vector(matches);
         }else if(aux == "Alterar_Time"){
+            system("clear||cls");
             Mostrar_Vector(team);
             cout << "Digite o numero do time : " << endl;
             int h2;
@@ -190,14 +211,50 @@ int main(){
             cin >> newname;
             team.at(h2)->SetNome(newname);
         }else if(aux == "Remover_Time"){
+            system("clear||cls");
             Mostrar_Vector(team);
             cout << "Digite o numero do time : " << endl;
             int h3;
             cin >> h3;
             //team.erase(h3);
-        }else if(aux == "EXIT"){
-            return 0;
-        }
+        }else if(aux == "Procurar_Jogador"){
+            system("clear||cls");
+            string player;
+            bool teste = false;
+            cout << "Qual o nome do Jogador:" << endl;
+            cin >> player;
+            for(int i=0;i<team.size();i++){
+                for(int j=0;j<5;j++){
+                    if(team.at(i)->GetJogador(j).GetNome() == player){
+                        /* Jogador gh = team.at(i)->GetJogador(j);
+                        Jogador* aux = &gh;
+                        if(aux->GetPosicao() == "Atacante"){
+                            Atacante* pa = dynamic_cast<Atacante*>(aux);
+                            pa->Atacante::printCard();
+                        }else if(aux->GetPosicao() == "Zagueiro"){
+                            Zagueiro* pa = dynamic_cast<Zagueiro*>(aux);
+                            pa->Zagueiro::printCard();
+                        }else if(aux->GetPosicao() == "Goleiro"){
+                            Goleiro* pa = dynamic_cast<Goleiro*>(aux);
+                            pa->Goleiro::printCard();
+                        } */
+                        team.at(i)->GetJogador(j).printCard();
+                        
 
+                        teste = true;
+                         break;
+                    }
+                }
+            }
+            if(teste == false){
+                system("clear||cls");
+                cout << "Não Encontrado\n";
+            }
+        }else if(aux == "EXIT" || aux == "exit"){
+            return 0;
+        }else{
+            system("clear||cls");
+            cout << "Comando Invalido\n";
+        }
     }
 }

@@ -3,9 +3,10 @@
 Goleiro::Goleiro() : Jogador() {
     reflexos = 0;
     altura = 0;
+    SetPosicao("Goleiro");
 }
 
-Goleiro::Goleiro(string nome,int idade,int habilidades,int gols,int camisa,int reflexos, float altura)  : Jogador(nome,idade,habilidades,gols,camisa){
+Goleiro::Goleiro(string nome,int idade,int habilidades,int gols,int camisa,int reflexos, float altura)  : Jogador(nome,idade,habilidades,gols,camisa,"Goleiro"){
     this->reflexos = reflexos;
     this->altura = altura;
 }

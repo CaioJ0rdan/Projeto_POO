@@ -71,3 +71,8 @@ void Time::DefResultados(int v,int e,int d){
     void Time::SetNome(string n){
         nome = n;
     }
+
+    Jogador Time::GetJogador(int posicão){
+        return *jogadores.at(posicão);
+    }
+

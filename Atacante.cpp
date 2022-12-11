@@ -3,9 +3,10 @@
 Atacante::Atacante() : Jogador() {
     velocidade = 0;
     tecnica = 0;
+    SetPosicao("Atacante");
 }
 
-Atacante::Atacante(string nome,int idade,int habilidades,int gols,int camisa,int velocidade, int tecnica)  : Jogador(nome,idade,habilidades,gols,camisa){
+Atacante::Atacante(string nome,int idade,int habilidades,int gols,int camisa,int velocidade, int tecnica)  : Jogador(nome,idade,habilidades,gols,camisa,"Atacante"){
     this->velocidade = velocidade;
     this->tecnica = tecnica;
 }
@@ -15,6 +16,7 @@ int Atacante::getHabilidade(){
 }
 
 void Atacante::printCard(){
+    
     cout << "Nome: " << GetNome() << endl;
     cout << "Posição: Atacante" << endl; 
     cout << "Idade: " << GetIdade() << endl;

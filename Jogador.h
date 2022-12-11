@@ -14,13 +14,13 @@ private: //ATRIBUTOS
     int habilidade;
     int gols;
     int camisa; 
-
+    string posicao;
 public:
 
 /*==========CONSTRUTORES=========*/
     Jogador();
 
-    Jogador(string nome,int idade,int habilidade,int gols,int camisa); 
+    Jogador(string nome,int idade,int habilidade,int gols,int camisa,string posicao); 
 
 /*==========FUNÇÕES GET=========*/
 
@@ -41,6 +41,10 @@ public:
     void SomaGol();
 
     void virtual printCard();
+
+    void SetPosicao(string p);
+
+    string GetPosicao();
 
 };
 

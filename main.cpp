@@ -67,11 +67,15 @@ int main(){
     A.ins_Jogador(&a5);
 
     Atacante B1("Lionel Messi",35,100,1000,10,100,100);
+    Atacante B2("Di Maria",29,88,67,9,82,91);
+    Zagueiro B3("De Paul",50,86,7,8,80,82);
+    Zagueiro B4("Romero",35,75,4,3,85,89);
+    Goleiro  B5("Martinez",25,70,2,3,90,1.95);
     B.ins_Jogador(&B1);
-    B.ins_Jogador(&B1);
-    B.ins_Jogador(&B1);
-    B.ins_Jogador(&B1);
-    B.ins_Jogador(&B1);
+    B.ins_Jogador(&B2);
+    B.ins_Jogador(&B3);
+    B.ins_Jogador(&B4);
+    B.ins_Jogador(&B5);
 
     Atacante c1("Marco Reus",33,90,50,10,91,94);
     Atacante c2("Kroos",30,90,26,8,83,90);

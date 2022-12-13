@@ -7,6 +7,21 @@
 #include "Torneio.h" 
 #include <chrono>
 #include <ctime>
+
+
+
+
+// Caio Jordan Oliveira de Siqueira - 509827
+// Victor Veras Martins - 510324
+// Lucas 'Titota' de Araujo Torres - 
+
+
+
+
+
+
+
+
  Date datad(20,10,1990);
 
 void Mostrar_Vector(vector<Time*> team){
@@ -145,7 +160,7 @@ int main(){
             cin >> nome;
             Zagueiro w4(nome,20+(rand()%20),40+(rand()%60),30+(rand()%40),5+rand()%2,60+(rand()%30),70+(rand()%25));
             cin >> nome;
-            Goleiro w5(nome,20+(rand()%20),40+(rand()%60),30+(rand()%40),1,60+(rand()%30),70+(rand()%25));
+            Goleiro w5(nome,20+(rand()%20),40+(rand()%60),30+(rand()%40),1,70+(rand()%30)/100,70+(rand()%25));
             
             novo->ins_Jogador(&w1);
             novo->ins_Jogador(&w2);
@@ -184,6 +199,8 @@ int main(){
             
         }else if(aux == "Mostrar_Time"){
             system("clear||cls");
+            Mostrar_Vector(team);
+            cout << "Digite o numero do time : " << endl;
             int ntime;
             cin >> ntime;
             Mostrar_Vector(team,ntime);
@@ -216,7 +233,7 @@ int main(){
             cout << "Digite o numero do time : " << endl;
             int h3;
             cin >> h3;
-            //team.erase(h3);
+            team.erase(team.begin()+h3);
         }else if(aux == "Procurar_Jogador"){
             system("clear||cls");
             string player;
@@ -226,35 +243,23 @@ int main(){
             for(int i=0;i<team.size();i++){
                 for(int j=0;j<5;j++){
                     if(team.at(i)->GetJogador(j).GetNome() == player){
-                        /* Jogador gh = team.at(i)->GetJogador(j);
-                        Jogador* aux = &gh;
-                        if(aux->GetPosicao() == "Atacante"){
-                            Atacante* pa = dynamic_cast<Atacante*>(aux);
-                            pa->Atacante::printCard();
-                        }else if(aux->GetPosicao() == "Zagueiro"){
-                            Zagueiro* pa = dynamic_cast<Zagueiro*>(aux);
-                            pa->Zagueiro::printCard();
-                        }else if(aux->GetPosicao() == "Goleiro"){
-                            Goleiro* pa = dynamic_cast<Goleiro*>(aux);
-                            pa->Goleiro::printCard();
-                        } */
                         team.at(i)->GetJogador(j).printCard();
                         
-
                         teste = true;
                          break;
+                         
                     }
                 }
             }
             if(teste == false){
                 system("clear||cls");
-                cout << "Não Encontrado\n";
+                cout << "\nNÃO ENCONTRADO\n" << endl;
             }
         }else if(aux == "EXIT" || aux == "exit"){
             return 0;
         }else{
             system("clear||cls");
-            cout << "Comando Invalido\n";
+            cout << "\nCOMANDO INVÁLIDO\n" << endl;
         }
     }
 }
